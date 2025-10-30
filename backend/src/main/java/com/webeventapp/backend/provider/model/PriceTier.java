@@ -1,10 +1,11 @@
 package com.webeventapp.backend.provider.model;
 
 public enum PriceTier {
-    BUDGET("CHF"),
-    MID_RANGE("CHF CHF"),
-    PREMIUM("CHF CHF CHF"),
-    ON_REQUEST("Price on request");
+    BUDGET("Budget"),
+    MODERATE("Mittel"),
+    PREMIUM("Premium"),
+    LUXURY("Luxury"),
+    ON_REQUEST("Preis auf Anfrage");
 
     private final String label;
 

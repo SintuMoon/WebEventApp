@@ -79,7 +79,7 @@ function ProviderPage() {
     );
   }
 
-  const priceLabel = priceLabels[provider.priceTier] ?? provider.priceTier;
+  const priceLabel = provider.priceLabel ?? priceLabels[provider.priceTier] ?? provider.priceTier;
   const categoryLabel = categoryLabels[provider.category] ?? provider.category;
 
   return (

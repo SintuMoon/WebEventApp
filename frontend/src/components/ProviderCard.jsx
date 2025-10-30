@@ -13,10 +13,13 @@ function ProviderCard({ provider }) {
     region,
     category,
     priceTier,
+    priceLabel,
     shortDescription,
     heroImage,
-    isFeatured
+    featured
   } = provider;
+
+  const displayPrice = priceLabel ?? priceLabels[priceTier] ?? null;
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-sand-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
@@ -26,7 +29,7 @@ function ProviderCard({ provider }) {
           alt={name}
           className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
         />
-        {isFeatured && (
+        {featured && (
           <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-charcoal shadow">
             <StarIcon className="h-4 w-4" /> Highlight
           </span>
@@ -46,10 +49,10 @@ function ProviderCard({ provider }) {
               {region ? `, ${region}` : ''}
             </span>
           </div>
-          {priceTier && (
+          {displayPrice && (
             <div className="flex items-center gap-2">
               <CurrencyFrancIcon className="h-4 w-4" />
-              <span>{priceLabels[priceTier] ?? priceTier}</span>
+              <span>{displayPrice}</span>
             </div>
           )}
         </div>
