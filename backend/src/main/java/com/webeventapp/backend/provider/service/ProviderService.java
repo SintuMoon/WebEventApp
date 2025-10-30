@@ -33,24 +33,24 @@ public class ProviderService {
     }
 
     public Page<ProviderResponse> searchProviders(ProviderSearchCriteria criteria, Pageable pageable) {
-        Specification<Provider> spec = null;
+        Specification<Provider> spec = Specification.where(null);
         if (criteria.category().isPresent()) {
-            spec = and(spec, ProviderSpecifications.hasCategory(criteria.category().get()));
+            spec = spec.and(ProviderSpecifications.hasCategory(criteria.category().get()));
         }
         if (criteria.city().isPresent()) {
-            spec = and(spec, ProviderSpecifications.locatedInCity(criteria.city().get()));
+            spec = spec.and(ProviderSpecifications.locatedInCity(criteria.city().get()));
         }
         if (criteria.region().isPresent()) {
-            spec = and(spec, ProviderSpecifications.locatedInRegion(criteria.region().get()));
+            spec = spec.and(ProviderSpecifications.locatedInRegion(criteria.region().get()));
         }
         if (criteria.priceTier().isPresent()) {
-            spec = and(spec, ProviderSpecifications.hasPriceTier(criteria.priceTier().get()));
+            spec = spec.and(ProviderSpecifications.hasPriceTier(criteria.priceTier().get()));
         }
         if (criteria.featured().isPresent()) {
-            spec = and(spec, ProviderSpecifications.isFeatured(criteria.featured().get()));
+            spec = spec.and(ProviderSpecifications.isFeatured(criteria.featured().get()));
         }
         if (criteria.hasCompleteLocationRadius()) {
-            spec = and(spec, ProviderSpecifications.withinRadius(
+            spec = spec.and(ProviderSpecifications.withinRadius(
                     criteria.latitude().orElseThrow(),
                     criteria.longitude().orElseThrow(),
                     criteria.radiusKm().orElseThrow()
@@ -155,10 +155,6 @@ public class ProviderService {
                 provider.getCreatedAt(),
                 provider.getUpdatedAt()
         );
-    }
-
-    private Specification<Provider> and(Specification<Provider> base, Specification<Provider> addition) {
-        return base == null ? addition : base.and(addition);
     }
 
     private void validateCoordinates(Double latitude, Double longitude) {

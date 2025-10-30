@@ -16,7 +16,7 @@ export const providerCategories = [
 
 export const priceOptions = [
   { value: 'BUDGET', label: 'Budget' },
-  { value: 'MODERATE', label: 'Mittel' },
+  { value: 'MID_RANGE', label: 'Mittel' },
   { value: 'PREMIUM', label: 'Premium' },
   { value: 'LUXURY', label: 'Luxury' },
   { value: 'ON_REQUEST', label: 'Preis auf Anfrage' }

@@ -31,7 +31,7 @@ class ProviderServiceTest {
                 "Schweiz",
                 47.3769,
                 8.5417,
-                PriceTier.MODERATE,
+                PriceTier.MID_RANGE,
                 "Hochzeitsfotografie mit Liebe zum Detail",
                 List.of("https://example.com/1.jpg"),
                 "https://instagram.com/goldenlens",
@@ -48,8 +48,8 @@ class ProviderServiceTest {
         assertThat(response.images()).hasSize(1);
         assertThat(response.latitude()).isEqualTo(47.3769);
         assertThat(response.longitude()).isEqualTo(8.5417);
-        assertThat(response.priceTier()).isEqualTo(PriceTier.MODERATE);
-        assertThat(response.priceLabel()).isEqualTo(PriceTier.MODERATE.getLabel());
+        assertThat(response.priceTier()).isEqualTo(PriceTier.MID_RANGE);
+        assertThat(response.priceLabel()).isEqualTo(PriceTier.MID_RANGE.getLabel());
     }
 
     @Test
@@ -99,7 +99,7 @@ class ProviderServiceTest {
                 "Schweiz",
                 46.2044,
                 6.1432,
-                PriceTier.MODERATE,
+                PriceTier.MID_RANGE,
                 "Genfer DJ Service",
                 List.of("https://example.com/dj2.jpg"),
                 null,

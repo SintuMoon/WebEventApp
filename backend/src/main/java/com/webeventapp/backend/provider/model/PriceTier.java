@@ -2,7 +2,7 @@ package com.webeventapp.backend.provider.model;
 
 public enum PriceTier {
     BUDGET("Budget"),
-    MODERATE("Mittel"),
+    MID_RANGE("Mittel"),
     PREMIUM("Premium"),
     LUXURY("Luxury"),
     ON_REQUEST("Preis auf Anfrage");
