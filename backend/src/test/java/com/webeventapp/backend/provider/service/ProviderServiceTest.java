@@ -48,6 +48,8 @@ class ProviderServiceTest {
         assertThat(response.images()).hasSize(1);
         assertThat(response.latitude()).isEqualTo(47.3769);
         assertThat(response.longitude()).isEqualTo(8.5417);
+        assertThat(response.priceTier()).isEqualTo(PriceTier.MODERATE);
+        assertThat(response.priceLabel()).isEqualTo(PriceTier.MODERATE.getLabel());
     }
 
     @Test
